@@ -6,18 +6,27 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    #container: ubuntu:18.04
+    container: connorlanigan/unrealengine-docker
     env:
       UE4DOCKER_USERNAME: ${{ secrets.UE4DOCKER_USERNAME }}
       UE4DOCKER_PASSWORD: ${{ secrets.UE4DOCKER_PASSWORD }}
     steps:
     - uses: actions/checkout@v1
-    - uses: actions/setup-python@v1
-    - name: Install setuptools
-      run: pip3 install -U setuptools
-    - name: Install ue4-docker
-      run: pip3 install ue4-docker
-    - name: Setup ue4-docker
-      run: ue4-docker setup
-    - name: Build Image
-      run: ue4-docker build 4.21.1 --no-engine
+    - name: test
+      run: RunUAT BuildCookRun -project=SampleProject.uproject -noP4 -platform=Win64 -cook -build -noclient -allmaps
+
+
+
+
+
+
+
+    # - uses: actions/setup-python@v1
+    # - name: Install setuptools
+    #   run: pip3 install -U setuptools
+    # - name: Install ue4-docker
+    #   run: pip3 install ue4-docker
+    # - name: Setup ue4-docker
+    #   run: ue4-docker setup
+    # - name: Build Image
+    #   run: ue4-docker build 4.21.1 --no-engine
