@@ -12,11 +12,8 @@ jobs:
       UE4DOCKER_PASSWORD: ${{ secrets.UE4DOCKER_PASSWORD }}
     steps:
     - uses: actions/checkout@v1
-    - name: ls 
-      run: ls ../..
-    - name: test
-      run: ./output/UnrealEngine/Engine/Build/BatchFiles/RunUAT.sh BuildCookRun -project=SampleProject.uproject -noP4 -platform=Win64 -cook -build -noclient -allmaps
-
+    - name: Install git
+      run: atp-get update && apt-get install git -y
 
 
 
