@@ -14,7 +14,7 @@ jobs:
     - name: Git credential
       run: git config credential.helper '!f() {sleep 1; echo "username=${GIT_USERNAME}";echo "password=${GIT_PASSWORD}";};'
     - name: Pull UE4 source
-      run: git clone https://github.com/EpicGames/UnrealEngine.git
+      run: git clone https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/EpicGames/UnrealEngine.git
     - name: Make
       run: make
 
