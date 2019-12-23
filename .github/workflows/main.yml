@@ -12,9 +12,11 @@ jobs:
    # - name: Install python
     #  run: apt-get update && apt-get install python3 python3-devel python3-pip
     - name: Install setuptools
-      run: pip3 install setuptools
-    - name: Install ue-4docker
+      run: pip3 install -U setuptools
+    - name: Install ue4-docker
       run: pip3 install ue4-docker
+    - name: Setup ue4-docker
+      run: ue4-docker setup
    # - name: Configure firewall
     #  run: ue4-docker setup
     - name: Build Image
