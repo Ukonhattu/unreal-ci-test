@@ -7,6 +7,9 @@ jobs:
 
     runs-on: ubuntu-latest
     #container: ubuntu:18.04
+    env:
+      UE4DOCKER_USERNAME: ${{ secrets.UE4DOCKER_USERNAME }}
+      UE4DOCKER_PASSWORD: ${{ secrets.UE4DOCKER_PASSWORD }}
     steps:
     - uses: actions/checkout@v1
     - uses: actions/setup-python@v1
