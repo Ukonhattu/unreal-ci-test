@@ -11,8 +11,6 @@ jobs:
       UE4DOCKER_PASSWORD: ${{ secrets.UE4DOCKER_PASSWORD }}
     steps:
     - uses: actions/checkout@v1
-    - name: Install git
-      run: apt-get update && apt-get install git -y
     - name: Pull UE4 source
       run: git clone https://github.com/EpicGames/UnrealEngine.git
     - name: Make
