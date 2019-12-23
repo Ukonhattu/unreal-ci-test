@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: test
-      run: RunUAT BuildCookRun -project=SampleProject.uproject -noP4 -platform=Win64 -cook -build -noclient -allmaps
+      run: ./output/UnrealEngine/Engine/Build/BatchFiles/RunUAT.sh BuildCookRun -project=SampleProject.uproject -noP4 -platform=Win64 -cook -build -noclient -allmaps
 
 
 
