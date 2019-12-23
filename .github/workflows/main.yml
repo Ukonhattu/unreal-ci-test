@@ -1,6 +1,6 @@
 name: CI
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -9,9 +9,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+    - name: Install python
+      run: apt-get update && apt-get install python3 python3-devel python3-pip
+    - name: Install ue-4docker
+      run: pip3 install ue4-docker
+    - name: Configure firewall
+      run: ue4-docker setup
+    - name: Build Image
+      run: ue4-docker build 4.21.1 --noengine
