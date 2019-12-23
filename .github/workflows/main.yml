@@ -19,7 +19,5 @@ jobs:
       run: pip3 install ue4-docker
     - name: Setup ue4-docker
       run: ue4-docker setup
-   # - name: Configure firewall
-    #  run: ue4-docker setup
     - name: Build Image
       run: ue4-docker build 4.21.1 --noengine
