@@ -7,10 +7,12 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      UE4DOCKER_USERNAME: ${{ secrets.UE4DOCKER_USERNAME }}
-      UE4DOCKER_PASSWORD: ${{ secrets.UE4DOCKER_PASSWORD }}
+      GIT_USERNAME: ${{ secrets.UE4DOCKER_USERNAME }}
+      GIT_PASSWORD: ${{ secrets.UE4DOCKER_PASSWORD }}
     steps:
     - uses: actions/checkout@v1
+    - name: Git credential
+      run: git config credential.helper '!f() {sleep 1; echo "username=${GIT_USERNAME}";echo "password=${GIT_PASSWORD}";};'
     - name: Pull UE4 source
       run: git clone https://github.com/EpicGames/UnrealEngine.git
     - name: Make
