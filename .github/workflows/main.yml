@@ -6,7 +6,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    container: Ubuntu:16.04
+    container: ubuntu:16.04
     steps:
     - uses: actions/checkout@v1
    # - name: Install python
