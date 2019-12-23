@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Install git
-      run: atp-get update && apt-get install git -y
+      run: apt-get update && apt-get install git -y
 
 
 
