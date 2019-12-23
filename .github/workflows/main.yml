@@ -6,7 +6,6 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    container: connorlanigan/unrealengine-docker
     env:
       UE4DOCKER_USERNAME: ${{ secrets.UE4DOCKER_USERNAME }}
       UE4DOCKER_PASSWORD: ${{ secrets.UE4DOCKER_PASSWORD }}
